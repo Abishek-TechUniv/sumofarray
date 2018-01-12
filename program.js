@@ -1,11 +1,25 @@
 function sum(firstArray, secondArray) {
   var resultArray = []
-  for (let i = 0; i < firstArray.length; i++) {
-     resultArray[i] = firstArray[i] + secondArray[i];
+  var check = verifyLength(firstArray, secondArray);
+  if (check.success == true){
+    for (let i = 0; i < firstArray.length; i++) {
+      resultArray[i] = firstArray[i] + secondArray[i];
+    }
+    return resultArray;
+  } else {
+    console.log(check.reason)
+    return false;
   }
-  return resultArray;
+
 }
 
+function verifyLength(firstArray, secondArray) {
+  if(firstArray.length == secondArray.length){
+    return { success: true, reason: ""};
+  }else{
+    return { success: false, reason: "array length mismatch"};
+  }
+}
 
 function equal(computed, expected){
   for (let i = 0; i < computed.length; i++) {
@@ -21,4 +35,4 @@ var sum1 = sum([1,2,3,4,5], [6,7,8,9,10])
 console.log("adding two arrays :",equal(sum1,[7,9,11,13,15]))
 
 var sum2 = sum([1,2], [1,4,5])
-console.log("adding two arrays with different lengths :", equal(sum2, false))
+console.log("adding two arrays with different lengths :", sum2 === false)
