@@ -4,6 +4,9 @@ function sum(firstArray, secondArray) {
   if (check.success == true){
     for (let i = 0; i < firstArray.length; i++) {
       resultArray[i] = add(firstArray[i],secondArray[i]);
+      if (resultArray[i] == false) {
+        return false;
+      }
     }
     return resultArray;
   } else {
@@ -25,12 +28,13 @@ function add(first, second){
 
 function verify(number){
   if (typeof number != "number"){
-    console.log("not a number");
+    console.log("type is not number");
     return false;
   }
-  if (number > -Infinity && number < Infinity) {
+  else if (number > -Infinity && number < Infinity) {
     return true;
   }else{
+    console.log("not a number error")
     return false;
   }
 }
