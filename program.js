@@ -1,9 +1,21 @@
 function sum(firstArray, secondArray) {
-  
+  var resultArray = []
+  for (let i = 0; i < firstArray.length; i++) {
+     resultArray[i] = firstArray[i] + secondArray[i];
+  }
+  return resultArray;
 }
 
 
+function equal(computed, expected){
+  for (let i = 0; i < computed.length; i++) {
+    if (computed[i] == expected[i]) {
+    } else {
+      return false;
+    }
+  }
+  return true;
+}
 
-
-
-console.log("adding two arrays :",sum([1,2,3,4,5], [6,7,8,9,10]) === [7,9,11,13,15])
+var sum1 = sum([1,2,3,4,5], [6,7,8,9,10])
+console.log("adding two arrays :",equal(sum1,[7,9,11,13,15]))
