@@ -67,13 +67,20 @@ let sum3 = sum(["1", 2], [2, 3])
 console.log("adding an array with a string inside it :", sum3 === false)
 
 let add1 = add(1, 2)
-console.log("adding two numbers :", add1 == 3)
+console.log("adding two numbers :", add1 === 3)
 
 let add2 = add(NaN, 2)
-console.log("adding a number with NaN :" , add2 == false)
+console.log("adding a number with NaN :" , add2 === false)
 
 let value1 = verify(4)
-console.log("verifies 4 :", value1 == true)
+console.log("verifies 4 :", value1 === true)
 
 let value2 = verify(Infinity)
-console.log("verifies Infinity as false :", value2 == false)
+console.log("verifies Infinity as false :", value2 === false)
+
+let length1 = verifyLength([1,2,3],[2,3,4])
+console.log("verifies length of array :", length1 === true)
+
+let length2 = verifyLength([1,2,3],[2,3,4,5])
+console.log("verifies length of mismatched array :", length2 === false)
+
