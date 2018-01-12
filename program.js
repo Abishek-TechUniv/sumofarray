@@ -36,3 +36,6 @@ console.log("adding two arrays :",equal(sum1,[7,9,11,13,15]))
 
 var sum2 = sum([1,2], [1,4,5])
 console.log("adding two arrays with different lengths :", sum2 === false)
+
+var sum3 = sum(["1", 2], [2, 3])
+console.log("adding an array with a string inside it :", sum3 === false)
