@@ -1,38 +1,37 @@
 function sum(firstArray, secondArray) {
   let resultArray = []
+  
   let check = verifyLength(firstArray, secondArray);
+  
+  if (!check) return false;
+  
+  for (let i = 0; i < firstArray.length; i++) {
+    result = addNumbers(firstArray[i],secondArray[i]);
+    if (result)
+      resultArray[i] = result;
+    else
+      return false;
+  }
+  return resultArray;
+}
+
+function addNumbers(first, second) {
+  let check = verifyNumber(first) && verifyNumber(second);
   if (check) {
-    for (let i = 0; i < firstArray.length; i++) {
-      resultArray[i] = add(firstArray[i],secondArray[i]);
-      if (resultArray[i] == false) {
-        return false;
-      }
-    }
-    return resultArray;
+    return first + second;
   } else {
     return false;
   }
-
 }
 
-function add(first, second) {
-  let check = verify(first) && verify(second);
-  if (check) {
-    return first + second;
-  }
-  else{
-    return false;
-  }
-}
-
-function verify(number){
+function verifyNumber(number){
   if (typeof number != "number") {
     console.log("type is not number");
     return false;
   }
   else if (number > -Infinity && number < Infinity) {
     return true;
-  }else {
+  } else {
     console.log("not a number error")
     return false;
   }
@@ -66,16 +65,16 @@ console.log("adding two arrays with different lengths :", sum2 === false)
 let sum3 = sum(["1", 2], [2, 3])
 console.log("adding an array with a string inside it :", sum3 === false)
 
-let add1 = add(1, 2)
+let add1 = addNumbers(1, 2)
 console.log("adding two numbers :", add1 === 3)
 
-let add2 = add(NaN, 2)
+let add2 = addNumbers(NaN, 2)
 console.log("adding a number with NaN :" , add2 === false)
 
-let value1 = verify(4)
+let value1 = verifyNumber(4)
 console.log("verifies 4 :", value1 === true)
 
-let value2 = verify(Infinity)
+let value2 = verifyNumber(Infinity)
 console.log("verifies Infinity as false :", value2 === false)
 
 let length1 = verifyLength([1,2,3],[2,3,4])
