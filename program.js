@@ -1,7 +1,7 @@
 function sum(firstArray, secondArray) {
   let resultArray = []
   let check = verifyLength(firstArray, secondArray);
-  if (check.success == true){
+  if (check) {
     for (let i = 0; i < firstArray.length; i++) {
       resultArray[i] = add(firstArray[i],secondArray[i]);
       if (resultArray[i] == false) {
@@ -10,13 +10,12 @@ function sum(firstArray, secondArray) {
     }
     return resultArray;
   } else {
-    console.log(check.reason)
     return false;
   }
 
 }
 
-function add(first, second){
+function add(first, second) {
   let check = verify(first) && verify(second);
   if (check) {
     return first + second;
@@ -27,27 +26,28 @@ function add(first, second){
 }
 
 function verify(number){
-  if (typeof number != "number"){
+  if (typeof number != "number") {
     console.log("type is not number");
     return false;
   }
   else if (number > -Infinity && number < Infinity) {
     return true;
-  }else{
+  }else {
     console.log("not a number error")
     return false;
   }
 }
 
 function verifyLength(firstArray, secondArray) {
-  if(firstArray.length == secondArray.length){
-    return { success: true, reason: ""};
-  }else{
-    return { success: false, reason: "array length mismatch"};
+  if(firstArray.length == secondArray.length) {
+    return true;
+  }else {
+    console.log("array length mismatch")
+    return false;
   }
 }
 
-function equal(computed, expected){
+function equal(computed, expected) {
   for (let i = 0; i < computed.length; i++) {
     if (computed[i] == expected[i]) {
     } else {
